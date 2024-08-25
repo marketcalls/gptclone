@@ -34,9 +34,14 @@ GPTClone is a FastAPI-based chat application that uses langchain for conversatio
    pip install -r requirements.txt
    ```
 
-4. Create a `.env` file in the project root and add your OpenAI API key:
+4. Create a `.env` file in the project root:
+   ```
+   cp .sample.env .env
+   ```
+   Then, edit the `.env` file and replace the placeholder values with your actual OpenAI API key and desired model:
    ```
    OPENAI_API_KEY=your_api_key_here
+   OPENAI_MODEL=gpt-4o-mini
    ```
 
 ## Usage
@@ -58,6 +63,8 @@ GPTClone is a FastAPI-based chat application that uses langchain for conversatio
 - `static/`: Static files (CSS, JavaScript)
 - `templates/`: HTML templates
 - `requirements.txt`: List of Python dependencies
+- `.sample.env`: Sample environment file with placeholder values
+- `.env`: (Created by you) Actual environment file with your API key and model name
 
 ## Contributing
 

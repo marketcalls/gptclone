@@ -25,7 +25,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 # Initialize the language model
-model = ChatOpenAI(model="gpt-4o-mini", openai_api_key=os.getenv("OPENAI_API_KEY"))
+model = ChatOpenAI(model=os.getenv("OPENAI_MODEL"), openai_api_key=os.getenv("OPENAI_API_KEY"))
 
 # Create tables
 database.create_tables()
