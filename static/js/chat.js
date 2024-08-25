@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatForm = document.getElementById('chat-form');
     const userInput = document.getElementById('user-input');
     const chatMessages = document.getElementById('chat-messages');
+    const chatContainer = document.querySelector('.chat-container');
 
     // Load chat history
     fetch('/history')
@@ -11,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messages.forEach(message => {
                 addMessageToChat(message.content, message.is_user);
             });
+            scrollToBottom();
         })
         .catch(error => console.error('Error loading chat history:', error));
 
@@ -42,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const chunk = decoder.decode(value);
                         aiResponse += chunk;
                         aiMessageElement.querySelector('.chat-bubble').innerHTML = markdownToHtml(aiResponse);
+                        scrollToBottom();
                     }
                 } else {
                     console.error('Error:', response.statusText);
@@ -63,8 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
         `;
         chatMessages.appendChild(messageElement);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
+        scrollToBottom();
         return messageElement;
+    }
+
+    function scrollToBottom() {
+        chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 
     function markdownToHtml(markdown) {

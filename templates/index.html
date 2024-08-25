@@ -7,6 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .chat-container {
+            height: calc(100vh - 180px);
+            overflow-y: auto;
+        }
         .chat-bubble {
             max-width: 80%;
             word-wrap: break-word;
@@ -29,8 +33,10 @@
     </div>
 
     <div class="flex-grow container mx-auto p-4 flex flex-col">
-        <div id="chat-messages" class="flex-grow overflow-y-auto mb-4 space-y-4">
-            <!-- Chat messages will be inserted here -->
+        <div class="chat-container mb-4">
+            <div id="chat-messages" class="space-y-4">
+                <!-- Chat messages will be inserted here -->
+            </div>
         </div>
         <div class="flex-none">
             <form id="chat-form" class="flex space-x-2">
