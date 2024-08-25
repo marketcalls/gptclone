@@ -74,6 +74,11 @@ async def chat(chat_input: schemas.ChatInput, db: Session = Depends(get_db)):
     try:
         session_id = "default"  # You might want to implement session management
 
+        # Save the user's input to the database
+        user_message = models.Message(content=chat_input.message, is_user=True)
+        db.add(user_message)
+        db.commit()
+
         # Function to stream the response
         def generate():
             full_response = ""
