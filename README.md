@@ -19,7 +19,7 @@ GPTClone is a FastAPI-based chat application that uses langchain for conversatio
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/gptclone.git
+   git clone https://github.com/marketcalls/gptclone.git
    cd gptclone
    ```
 
